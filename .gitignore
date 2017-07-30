@@ -1,0 +1,5 @@
+.metadata/
+gameoflife/target/
+gameoflife/.classpath
+gameoflife/.project
+gameoflife/.settings/
