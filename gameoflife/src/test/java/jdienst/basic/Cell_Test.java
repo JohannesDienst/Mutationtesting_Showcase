@@ -30,6 +30,22 @@ public class Cell_Test {
   }
 
   @Test
+  public void setSevenLivingNeighbors_IsDead_IsDeadInNextGeneration() {
+    Cell cell = getCell(false, 8);
+    Cell[] neighbors = new Cell[8];
+    for (int i = 0; i < 8; i++) {
+      if (i < 7) {
+        neighbors[i] = getCell(true, 8);
+      }
+      else {
+        neighbors[i] = getCell(false, 8);
+      }
+    }
+    cell.setNeighbors(neighbors);
+    assertFalse("Cell should be dead with seven living neighbors", cell.isAliveInNextGeneration());
+  }
+
+  @Test
   public void setThreeLivingNeighbors_IsAlive_IsAliveNextGeneration() {
     Cell cell = getCell(true, 8);
     Cell[] neighbors = new Cell[8];
